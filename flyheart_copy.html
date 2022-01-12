@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Heart flying animation with CSS</title>
+  
+    <style>
+        body{
+            background-image: url(images/audi.png);
+            background-size: cover;
+        }
+      .hearts  {
+    position: absolute;
+    bottom: 15%;
+    left: 5%;
+    transform: translateX(-50%);
+  }
+  .hearts  .heart {
+    position: absolute;
+    list-style: none;
+    width: 32px;
+    height: 32px;
+    margin: 4px;
+  }
+  .hearts .heart:before,
+  .hearts .heart:after {
+    position: absolute;
+    content: "";
+    left: 16px;
+    top: 0;
+    width: 0px;
+    height: 0px;
+    background: red;
+  
+    -moz-border-radius: 16px 16px 0 0;
+    -o-border-radius: 16px 16px 0 0;
+    border-radius: 16px 16px 0 0;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-transform-origin: 0 100%;
+    -moz-transform-origin: 0 100%;
+    -o-transform-origin: 0 100%;
+    transform-origin: 0 100%;
+  }
+  .hearts .heart:after {
+    left: 0;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    -webkit-transform-origin: 100% 100%;
+    -moz-transform-origin: 100% 100%;
+    -o-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+  }
+  .hearts.flying> .heart:nth-child(even) {
+    -webkit-animation: 2.8s flyingEven linear infinite;
+    -moz-animation: 2.8s flyingEven linear infinite;
+    animation: 2.8s flyingEven linear infinite;
+  }
+  .hearts.flying > .heart:nth-child(odd) {
+    -webkit-animation: 2.8s flyingOdd linear infinite;
+    -moz-animation: 2.8s flyingOdd linear infinite;
+    animation: 2.8s flyingOdd linear infinite;
+  }
+  .hearts.flying > .heart:nth-child(1) {
+    animation-delay: 0.2s;
+  }
+  .hearts.flying > .heart:nth-child(2) {
+    animation-delay: 0.9s;
+  }
+  .hearts.flying > .heart:nth-child(3) {
+    animation-delay: 1.4s;
+  }
+  
+  @-moz-keyframes flyingEven {
+    0% {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(100px, -480px) scale(2);
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes flyingEven {
+    0% {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(100px, -480px) scale(2);
+      opacity: 1;
+    }
+  }
+  @keyframes flyingEven {
+    0% {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(100px, -480px) scale(2);
+      opacity: 1;
+    }
+  }
+  @-moz-keyframes flyingOdd {
+    0% {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-100px, -480px) scale(2);
+      opacity: 1;
+    }
+  }
+  @-webkit-keyframes flyingOdd {
+    0% {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-100px, -480px) scale(2);
+      opacity: 1;
+    }
+  }
+  @keyframes flyingOdd {
+    0% {
+      transform: translate(0, 0) scale(1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-100px, -480px) scale(2);
+      opacity: 1;
+    }
+  }
+.emoji{
+    padding: 5px;
+}
+  
+  
+    </style>
+    
+  
+</head>
+
+<body>
+
+  <button onclick="flyingHandle()">on/of</button>
+  
+  <ul class="hearts flying" id="mainHeartPart">
+  <li id="1" class="heart" ></li>
+  <li id="2" class="heart" ></li>
+  <li id="3" class="heart" ></li>
+  
+ 
+</ul>
+
+<!--
+<img src="https://i.postimg.cc/sDX01pjr/in-love.png "  >
+<img src="https://i.postimg.cc/GtZYLw39/laughing.png">
+<img src="https://i.postimg.cc/YCx330q3/sad.pngs">
+<img src="https://i.postimg.cc/9XGqTSfP/wow.png">
+
+-->
+
+
+
+
+
+
+
+<div class=" dropend" style="position: absolute; bottom: 5%; left: 5%; cursor: pointer;">
+    <button type="button" class="btn  dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="images/emoji.png" height="50px" width="50px" >
+    </button>
+    <ul class="dropdown-menu" style=" border: none; background-color: rgba(255, 255, 255, 0);" >
+        <div style="display: flex;">
+            <li class="emoji" id="love"><img src="images/in-love.png" height="50px" width="50px" ></li>
+            <li class="emoji" id="laugh"><img src="images/laughing.png" height="50px" width="50px" ></li>
+            <li class="emoji" id="sad"><img src="images/sad.png" height="50px" width="50px"></li>
+            <li class="emoji" id="wow"><img src="images/wow.png" height="50px" width="50px"></li>
+        </div>
+     
+    </ul>
+  </div>
+  
+
+
+<div>
+   
+   
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  
+  <script>
+    function flyingHandle() {
+      const element = document.querySelector("#mainHeartPart");
+      const exist =  element.classList.contains("flying");
+      if (exist) {
+        element.classList.remove("flying");
+      } else {
+        element.classList.add("flying");
+      }
+    }
+
+let love =document.getElementById("love");
+let laugh = document.getElementById("laugh");
+let sad= document.getElementById("sad");
+let wow =document.getElementById("wow");
+
+var img1= document.createElement("img");
+ img1.src = 'https://i.postimg.cc/sDX01pjr/in-love.png'
+
+ var img2 = document.createElement("img");
+ img2.src = 'https://i.postimg.cc/GtZYLw39/laughing.png'
+
+ var img3 = document.createElement("img");
+ img3.src = 'https://i.postimg.cc/GtZYLw39/sad.png'
+
+
+ var img4 = document.createElement("img");
+ img4.src = 'https://i.postimg.cc/GtZYLw39/laughing.png'
+
+
+love.addEventListener("click",function(){
+    document.querySelectorAll('.heart').forEach((heart) => {
+        var img1= document.createElement("img");
+ img1.src = 'https://i.postimg.cc/sDX01pjr/in-love.png'
+ heart.innerHTML='';
+        heart.appendChild(img1);
+       
+});
+  
+})
+
+laugh.addEventListener("click",function(){
+    document.querySelectorAll('.heart').forEach((heart) => {
+        var img2= document.createElement("img");
+        img2.src = 'https://i.postimg.cc/GtZYLw39/laughing.png'
+        heart.innerHTML='';
+        heart.appendChild(img2);
+ 
+});
+
+  
+})
+
+sad.addEventListener("click",function(){
+    document.querySelectorAll('.heart').forEach((heart) => {
+      var img3 = document.createElement("img");
+ img3.src = 'https://i.postimg.cc/YCx330q3/sad.pngs'
+ heart.innerHTML='';
+  heart.appendChild(img3);
+});
+
+
+  
+})
+wow.addEventListener("click",function(){
+    document.querySelectorAll('.heart').forEach((heart) => {
+ var img4 = document.createElement("img");
+ img4.src = 'https://i.postimg.cc/9XGqTSfP/wow.png'
+ heart.innerHTML='';
+  heart.appendChild(img4);
+});
+  
+})
+
+
+  </script>
+
+</body>
+
+</html>
